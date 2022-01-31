@@ -27,8 +27,8 @@ jobs:
       - name: Build wheel
         if: ${{ matrix.BUILDMODE == 'CIBUILDWHEEL' }}
         env:
-          CIBW_BEFORE_ALL: "echo Testing; pwd; ls"
-          CIBW_SKIP: pp* *-musllinux*
+          CIBW_BEFORE_ALL: "echo Testing; pwd; ls; echo $HOME; ls $HOME"
+          CIBW_SKIP: pp* *-musllinux cp36* cp37* cp38* cp39*
           CIBW_ARCHS_LINUX: auto
         run: |
           python -m pip install cibuildwheel
