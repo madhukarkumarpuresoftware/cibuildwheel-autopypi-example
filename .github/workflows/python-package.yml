@@ -28,8 +28,10 @@ jobs:
         if: ${{ matrix.BUILDMODE == 'CIBUILDWHEEL' }}
         env:
           CIBW_BEFORE_ALL: "echo Testing; pwd; ls; echo $HOME; ls $HOME"
-          CIBW_SKIP: pp* *-musllinux cp36* cp37* cp38* cp39*
+          CIBW_SKIP: pp* *-musllinux cp36* cp37* cp38* cp39* *i686*
           CIBW_ARCHS_LINUX: auto
         run: |
+          echo "HOME: "
+          echo $HOME
           python -m pip install cibuildwheel
           cibuildwheel --output-dir wheelhouse
