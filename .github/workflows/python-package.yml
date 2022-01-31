@@ -33,5 +33,6 @@ jobs:
         run: |
           echo "HOME: "
           echo $HOME
+          ls $HOME
           python -m pip install cibuildwheel
           cibuildwheel --output-dir wheelhouse
